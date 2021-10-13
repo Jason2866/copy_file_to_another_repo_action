@@ -14,15 +14,15 @@ This GitHub Action copies a file from the current repository to a location in an
           uses: actions/checkout@v2
 
         - name: Pushes test file
-          uses: dmnemec/copy_file_to_another_repo_action@main
+          uses: Jason2866/copy_file_to_another_repo_action@main
           env:
             API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
           with:
             source_file: 'test2.md'
-            destination_repo: 'dmnemec/release-test'
+            destination_repo: 'Jason2866/release-test'
             destination_folder: 'test-dir'
             user_email: 'example@email.com'
-            user_name: 'dmnemec'
+            user_name: 'Jason2866'
             commit_message: 'A custom message for the commit'
 
 # Variables
