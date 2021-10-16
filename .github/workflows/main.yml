@@ -1,6 +1,8 @@
 name: Push File
 
-on: push
+on:
+  workflow_dispatch:  # Manually start a workflow
+  push:
 
 jobs:
   copy-file:
