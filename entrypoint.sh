@@ -44,7 +44,7 @@ if git status | grep -q "Changes to be committed"
 then
   git commit --message "$INPUT_COMMIT_MESSAGE"
   echo "Pushing git commit"
-  git pull --rebase origin HEAD:$OUTPUT_BRANCH
+  git pull --ff-only $INPUT_DESTINATION_BRANCH
   git push -u origin HEAD:$OUTPUT_BRANCH
 else
   echo "No changes detected"
