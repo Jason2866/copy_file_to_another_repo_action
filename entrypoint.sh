@@ -78,10 +78,6 @@ then
       git fetch
       git rebase
       i=$(( i + 1 ))
-      if git push
-      then
-        exit 0;
-      fi
     done
     echo "Can not push changes to $OUTPUT_BRANCH after retrying $INPUT_RETRY_ATTEMPTS attempts"
   fi
