@@ -71,7 +71,7 @@ then
   elif [ $((INPUT_RETRY_ATTEMPTS)) -gt 0 ]; then
     echo "Retrying git push"
     i=0
-    max=10
+    max=$((INPUT_RETRY_ATTEMPTS))
     while [ $i -lt $max ]
     do
       sleep $((1 + $RANDOM % 5))s
