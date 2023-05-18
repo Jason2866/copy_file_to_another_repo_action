@@ -52,9 +52,9 @@ runs:
     - ${{ inputs.destination-branch }}
     - ${{ inputs.destination-branch-create }}
     - ${{ inputs.commit-message }}
-    - ${{ inputs.git-server }}
     - ${{ inputs.rename }}
     - ${{ inputs.use-rsync }}
+    - ${{ inputs.git-server }}
     - ${{ inputs.retry_attempts }}
 branding:
   icon: 'git-commit'
