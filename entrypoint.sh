@@ -57,6 +57,7 @@ then
   else
   git checkout -b "$INPUT_DESTINATION_BRANCH_CREATE"
   OUTPUT_BRANCH="$INPUT_DESTINATION_BRANCH_CREATE"
+  fi
 fi
 
 if [ -z "$INPUT_COMMIT_MESSAGE" ]
