@@ -21,8 +21,6 @@ This GitHub Action copies a file from the current repository to a location in an
             source_file: 'test2.md'
             destination_repo: 'Jason2866/release-test'
             destination_folder: 'test-dir'
-            user_email: 'example@email.com'
-            user_name: 'Jason2866'
             commit_message: 'A custom message for the commit'
 
 # Variables
