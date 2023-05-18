@@ -73,10 +73,14 @@ then
   then
     echo "Retrying git push"
     i=0
-    while[ "$i" -le "$INPUT_RETRY_ATTEMPTS" ]; do
+    while[ "$i" -le 10 ]; do
       sleep $((1 + $RANDOM % 5))s
       git fetch
       git rebase
+      if git push
+      then
+        exit 0;
+      fi
       i=$(( i + 1 ))
     done
     echo "Can not push changes to $OUTPUT_BRANCH after retrying $INPUT_RETRY_ATTEMPTS attempts"
