@@ -11,7 +11,7 @@ This GitHub Action copies a file from the current repository to a location in an
         runs-on: ubuntu-latest
         steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
         - name: Pushes test file
           uses: Jason2866/copy_file_to_another_repo_action@main
@@ -32,11 +32,12 @@ The `API_TOKEN_GITHUB` needs to be set in the `Secrets` section of your reposito
 * source_file: The file or directory to be moved. Uses the same syntax as the `cp` command. Incude the path for any files not in the repositories root directory.
 * destination_repo: The repository to place the file or directory in.
 * destination_folder: [optional] The folder in the destination repository to place the file in, if not the root directory.
-* user_email: The GitHub user email associated with the API token secret.
-* user_name: The GitHub username associated with the API token secret.
+* user_email: [optional] The GitHub user email associated with the API token secret.
+* user_name: [optional] The GitHub username associated with the API token secret.
 * destination_branch: [optional] The branch of the source repo to update, if not "main" branch is used.
 * destination_branch_create: [optional] A branch to be created with this commit, defaults to commiting in `destination_branch`
 * commit_message: [optional] A custom commit message for the commit. Defaults to `Update from https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}`
+* use_rsync: [optional] Uses rsync -avh instead of cp -R to perform the base operation. Currently works as an experimental feature (due to lack of testing) but can speed up updates to large collections of files with many small changes by only syncing the changes and not copying the entire contents again. Please understand your use case before using this, and provide feedback as issues if needed.
 * retry_attempts: [optional] The number of retries when pushing commit failed.  Default: 10
 
 # Behavior Notes
