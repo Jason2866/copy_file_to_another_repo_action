@@ -37,6 +37,7 @@ The `API_TOKEN_GITHUB` needs to be set in the `Secrets` section of your reposito
 * destination_branch: [optional] The branch of the source repo to update, if not "main" branch is used.
 * destination_branch_create: [optional] A branch to be created with this commit, defaults to commiting in `destination_branch`
 * commit_message: [optional] A custom commit message for the commit. Defaults to `Update from https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}`
+* retry_attempts: [optional] The number of retries when pushing commit failed.  Default: 10
 
 # Behavior Notes
 The action will create any destination paths if they don't exist. It will also overwrite existing files if they already exist in the locations being copied to. It will not delete the entire destination repository.
