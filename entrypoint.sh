@@ -51,7 +51,7 @@ cd "$CLONE_DIR"
 if [ ! -z "$INPUT_DESTINATION_BRANCH_CREATE" ]
 then
   exists=$(git ls-remote --heads origin ${INPUT_DESTINATION_BRANCH_CREATE})
-  if [[ -z ${exists} ]]; then
+  if [[ ! -z ${exists} ]]; then
     echo "Deleting existing branch ${INPUT_DESTINATION_BRANCH_CREATE}"
     git push origin --delete "$INPUT_DESTINATION_BRANCH_CREATE"
   fi
