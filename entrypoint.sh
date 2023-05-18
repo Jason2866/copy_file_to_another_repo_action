@@ -70,7 +70,7 @@ then
   then
     echo "Git push succeeded"
   elif [ $((INPUT_RETRY_ATTEMPTS)) -gt 0 ]
-    then
+  then
     echo "Retrying git push"
     i=0
     while[ "$i" -le "$INPUT_RETRY_ATTEMPTS" ]
