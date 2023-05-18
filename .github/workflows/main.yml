@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Mark test file
       run: |-
@@ -17,32 +17,26 @@ jobs:
         echo $GITHUB_SHA > test03.md
 
     - name: Ignore unchanged file
-      uses: Jason2866/copy_file_to_another_repo_action@main
+      uses: Jason2866/copy_file_to_another_repo_action@development
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source_file: 'test01.md'
         destination_repo: 'Jason2866/release-test'
-        user_email: 'github-actions@github.com'
-        user_name: 'Jason2866'
 
     - name: Push changed file
-      uses: Jason2866/copy_file_to_another_repo_action@main
+      uses: Jason2866/copy_file_to_another_repo_action@mdevelopment
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source_file: 'test02.md'
         destination_repo: 'Jason2866/release-test'
-        user_email: 'github-actions@github.com'
-        user_name: 'Jason2866'
 
     - name: Check custom commit message
-      uses: Jason2866/copy_file_to_another_repo_action@main
+      uses: Jason2866/copy_file_to_another_repo_action@development
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source_file: 'test03.md'
         destination_repo: 'Jason2866/release-test'
-        user_email: 'github-actions@github.com'
-        user_name: 'Jason2866'
         commit_message: 'A custom message.'
