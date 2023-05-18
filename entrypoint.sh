@@ -51,7 +51,9 @@ cd "$CLONE_DIR"
 if [ ! -z "$INPUT_DESTINATION_BRANCH_CREATE" ]
 then
   echo "Creating new branch: ${INPUT_DESTINATION_BRANCH_CREATE}"
-  git checkout -b "$INPUT_DESTINATION_BRANCH_CREATE"
+  git switch --orphan "$INPUT_DESTINATION_BRANCH_CREATE"
+  git commit --allow-empty -m "Initial commit"
+  git push -u origin "$INPUT_DESTINATION_BRANCH_CREATE"
   OUTPUT_BRANCH="$INPUT_DESTINATION_BRANCH_CREATE"
 fi
 
