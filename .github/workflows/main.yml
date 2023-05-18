@@ -17,7 +17,7 @@ jobs:
         echo $GITHUB_SHA > test03.md
         echo $GITHUB_SHA > test04.md
     - name: Ignore unchanged file
-      uses: Jason2866/copy_file_to_another_repo_action@development
+      uses: Jason2866/copy_file_to_another_repo_action@rolling
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
@@ -25,7 +25,7 @@ jobs:
         destination_repo: 'Jason2866/release-test'
 
     - name: Push changed file
-      uses: Jason2866/copy_file_to_another_repo_action@development
+      uses: Jason2866/copy_file_to_another_repo_action@rolling
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
@@ -33,7 +33,7 @@ jobs:
         destination_repo: 'Jason2866/release-test'
 
     - name: Check custom commit message
-      uses: Jason2866/copy_file_to_another_repo_action@development
+      uses: Jason2866/copy_file_to_another_repo_action@rolling
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
@@ -42,7 +42,7 @@ jobs:
         commit_message: 'A custom message.'
 
     - name: Create new branch
-      uses: Jason2866/copy_file_to_another_repo_action@development
+      uses: Jason2866/copy_file_to_another_repo_action@rolling
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
