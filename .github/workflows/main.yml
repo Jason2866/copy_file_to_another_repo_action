@@ -46,7 +46,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_file: 'test03.md'
+        source_file: 'test01.md'
         destination_repo: 'Jason2866/release-test'
         destination_branch_create: 'new'
         commit_message: 'A custom message.'
