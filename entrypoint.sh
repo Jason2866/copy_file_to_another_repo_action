@@ -66,22 +66,17 @@ if git status | grep -q "Changes to be committed"
 then
   git commit --message "$INPUT_COMMIT_MESSAGE"
   echo "Pushing git commit"
-  if git push -u origin HEAD:"$OUTPUT_BRANCH"
-  then
+  if git push -u origin HEAD:$OUTPUT_BRANCH; then
     echo "Git push succeeded"
-  elif [ $((INPUT_RETRY_ATTEMPTS)) -gt 0 ]
-  then
+  elif [ $((INPUT_RETRY_ATTEMPTS)) -gt 0 ]; then
     echo "Retrying git push"
-    i=0
-    while[ "$i" -le 10 ]; do
+    for (( i=0; i < 10)); i++ )); do
       sleep $((1 + $RANDOM % 5))s
       git fetch
       git rebase
-      if git push
-      then
+      if git push; then
         exit 0;
       fi
-      i=$(( i + 1 ))
     done
     echo "Can not push changes to $OUTPUT_BRANCH after retrying $INPUT_RETRY_ATTEMPTS attempts"
   fi
