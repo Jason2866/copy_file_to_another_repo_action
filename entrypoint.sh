@@ -70,7 +70,10 @@ then
     echo "Git push succeeded"
   elif [ $((INPUT_RETRY_ATTEMPTS)) -gt 0 ]; then
     echo "Retrying git push"
-    for (( i=0; i < 10)); i++ )); do
+    i=0
+    max=10
+    while [ $i -lt $max ]
+    do
       sleep $((1 + $RANDOM % 5))s
       git fetch
       git rebase
