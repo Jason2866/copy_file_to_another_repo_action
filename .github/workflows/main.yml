@@ -13,7 +13,7 @@ jobs:
 
     - name: Mark test file
       run: |-
-        apt-get install -y git-lfs
+        sudo apt-get install -y git-lfs
         echo $GITHUB_SHA > test02.md
         echo $GITHUB_SHA > test03.md
         echo $GITHUB_SHA > test04.md
