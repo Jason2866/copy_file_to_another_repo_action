@@ -19,6 +19,9 @@ OUTPUT_BRANCH="$INPUT_DESTINATION_BRANCH"
 
 CLONE_DIR=$(mktemp -d)
 
+echo "[+] Enable git lfs"
+git lfs install
+
 echo "Cloning destination git repository"
 git config --global http.version HTTP/1.1
 git config --global http.postBuffer 157286400
@@ -48,9 +51,9 @@ for SOURCE_FILE in $SOURCE_FILES; do
   
   # Handle source file
   if [ -d "$SOURCE_FILE" ]; then
-    rsync -avrh "$SOURCE_FILE"/* "$DEST_COPY"
+    rsync -avrh --exclude "$INPUT_EXCLUDE_FILES" "$SOURCE_FILE"/* "$DEST_COPY"
   else
-    rsync -avrh "$SOURCE_FILE" "$DEST_COPY"
+    rsync -avrh --exclude "$INPUT_EXCLUDE_FILES" "$SOURCE_FILE" "$DEST_COPY"
   fi
 done
 

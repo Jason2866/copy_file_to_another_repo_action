@@ -13,6 +13,9 @@ This GitHub Action copies files or folders from the current repository to a loca
  
  + Use ${{ github.event.head_commit.message }} to 
  + preserve the original commit message.
+ 
+ + git-lfs support.
+ 
  ```
 # Example Workflow
 ```yml
@@ -56,6 +59,7 @@ The `API_TOKEN_GITHUB` needs to be set in the `Secrets` section of your reposito
  use `${{ github.event.head_commit.message }}` to preserve the original commit message.
 * delete_existing: true [optional] Delete all the existing files in the `destination_folder` before copying over the new files.
   destination_folder: is mandatory if using this action.
+* exclude_files: [optional] Files to exclude for rsync.
 
 # Behavior Notes
 The action will create any destination paths if they don't exist. It will also overwrite existing files if they already exist in the locations being copied to. It will not delete the entire destination repository.
